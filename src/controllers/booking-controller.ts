@@ -34,11 +34,8 @@ export async function createBooking(req: AuthenticatedRequest, res: Response, ne
   const { roomId } = req.body as { roomId: number };
   try {
     log(`createBooking iniciado para o usuário ${userId} e quarto ${roomId}`);
-
     const { bookingId } = await bookingService.createBooking(roomId, userId);
-
     log(`createBooking concluído para o usuário ${userId} e quarto ${roomId}`);
-
     return res.status(httpStatus.OK).send({ bookingId });
   } catch (e) {
     log(`createBooking falhou para o usuário ${userId} e quarto ${roomId}: ${e}`);

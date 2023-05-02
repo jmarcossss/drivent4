@@ -5,6 +5,7 @@ function log(message: string) {
   console.log(`[LOG] ${message}`);
 }
 
+// Função para buscar uma reserva por ID do usuário
 async function findBookingByUserId(userId: number) {
   log('Iniciando a função findBookingByUserId');
   const result = await prisma.booking.findFirst({
@@ -14,6 +15,7 @@ async function findBookingByUserId(userId: number) {
   return result;
 }
 
+// Função para buscar uma reserva por ID do quarto
 async function findBookingByRoomId(roomId: number) {
   log('Iniciando a função findBookingByRoomId');
   const result = await prisma.booking.findFirst({
@@ -23,6 +25,7 @@ async function findBookingByRoomId(roomId: number) {
   return result;
 }
 
+// Função genérica para criar uma reserva
 async function createBooking(roomId: number, userId: number) {
   log('Iniciando a função createBooking');
   const result = await prisma.booking.create({
@@ -32,6 +35,7 @@ async function createBooking(roomId: number, userId: number) {
   return result;
 }
 
+// Função para atualizar uma reserva por ID
 async function updateBookingById(bookingId: number, roomId: number) {
   log('Iniciando a função updateBookingById');
   const result = await prisma.booking.update({
