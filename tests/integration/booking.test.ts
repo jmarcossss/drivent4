@@ -13,7 +13,6 @@ import {
   createTicketType,
   createUser,
   createTicketTypeRemote,
-  createTicketTypeWithHotel,
   createTicketTypeWithNoHotel,
 } from '../factories';
 import { createBooking } from '../factories/booking-factory';
@@ -224,10 +223,7 @@ describe('PUT /booking/:bookingId', () => {
   });
 
   describe('quando o token válido é fornecido', () => {
-    const generateValidBody = () => ({
-      email: faker.internet.email(),
-      password: faker.internet.password(6),
-    });
+    const generateValidBody = () => ({ email: faker.internet.email(), password: faker.internet.password(6) });
 
     it('verifica se a resposta é 404 quando o roomId é inválido', async () => {
       const createdUser = await createUser(generateValidBody());
